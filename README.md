@@ -6,6 +6,7 @@ Project members
 -Jeremy
 -Itzel
 -Chamu
+-Stanley
 
 Your project's `readme` is as important to success as your code. For
 this reason you should put as much care into its creation and maintenance
