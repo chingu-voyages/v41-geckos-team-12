@@ -1,0 +1,22 @@
+{
+  "name": "v41-geckos-team-12",
+  "version": "1.0.0",
+  "description": "Project members",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyages/v41-geckos-team-12.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chingu-voyages/v41-geckos-team-12/issues"
+  },
+  "homepage": "https://github.com/chingu-voyages/v41-geckos-team-12#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
