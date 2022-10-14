@@ -1,9 +1,9 @@
-const { createServer } = require('http')
-const { Server } = require('socket.io')
+import { createServer } from 'http'
+import { Server } from 'socket.io'
 
-  const PORT = 3000
+const PORT = 3000
 
-const httpServer = createServer()
+ const httpServer = createServer()
 const io = new Server(httpServer, {
   // options
 })

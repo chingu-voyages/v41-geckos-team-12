@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "npm run server --workspaces=server",
+    "server": "npm run server -w @geckochat/server",
+    "server:lint": "npm run lint -w @geckochat/server",
     "prepare": "husky install"
   },
   "repository": {
@@ -19,7 +20,11 @@
   },
   "homepage": "https://github.com/chingu-voyages/v41-geckos-team-12#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "typescript": "^4.8.4"
   },
