@@ -7,12 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
     "lint": "npx eslint .",
-    "lint:fix": "npx eslint . --fix"
+    "lint:fix": "npx eslint . --fix",
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*.js": [
+    "**/*.js": [
       "prettier --write .",
-      "eslint"
+      "eslint . --fix"
     ]
   },
   "keywords": [],
