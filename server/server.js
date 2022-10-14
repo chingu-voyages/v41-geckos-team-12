@@ -3,7 +3,7 @@ import { Server } from 'socket.io'
 
 const PORT = 3000
 
- const httpServer = createServer()
+const httpServer = createServer()
 const io = new Server(httpServer, {
   // options
 })
