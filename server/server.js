@@ -1,4 +1,4 @@
-  import { createServer } from 'http'
+import { createServer } from 'http'
 import { Server } from 'socket.io'
 
 const PORT = 3000

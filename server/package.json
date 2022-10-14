@@ -10,7 +10,10 @@
     "lint:fix": "npx eslint . --fix"
   },
   "lint-staged": {
-    "*.js": "eslint . --fix"
+    "*.js": [
+      "eslint .",
+      "prettier"
+    ]
   },
   "keywords": [],
   "author": "",
