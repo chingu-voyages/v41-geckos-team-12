@@ -7,7 +7,7 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  // ...
+  // ... add new tcp
 });
 
 httpServer.listen(3000);
