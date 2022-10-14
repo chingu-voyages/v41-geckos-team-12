@@ -1,4 +1,4 @@
-import { createServer } from 'http'
+  import { createServer } from 'http'
 import { Server } from 'socket.io'
 
 const PORT = 3000
@@ -8,7 +8,7 @@ const io = new Server(httpServer, {
   // options
 })
 
-io.on('connection', (socket) => {
+  io.on('connection', (socket) => {
   // ... add new tcp
 })
 
