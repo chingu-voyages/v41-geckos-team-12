@@ -1,11 +1,20 @@
 {
-  "name": "geckos",
+  "name": "@geckochat/server",
   "version": "1.0.0",
   "description": "geckos chat app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "prettier --write .",
+      "eslint . --fix"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -15,5 +24,7 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
-  }
+  },
+  "private": true,
+  "type": "module"
 }

@@ -15,14 +15,7 @@
     "isolatedModules": false,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true,
+    "sourceMap": true
   },
-  "exclude": [
-    "node_modules",
-    "**/node_modules",
-    "dist",
-    "**/dist",
-    "scripts"
-  ]
+  "exclude": ["node_modules", "**/node_modules", "dist", "**/dist", "scripts"]
 }
-
