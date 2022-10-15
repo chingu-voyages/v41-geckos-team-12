@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "jsx": "react",
+    "outDir": "build",
     "target": "es2021",
     "lib": ["es2021", "dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -17,5 +19,5 @@
     "declarationMap": true,
     "sourceMap": true
   },
-  "exclude": ["node_modules", "**/node_modules", "dist", "**/dist", "scripts"]
+  "exclude": ["node_modules", "**/node_modules", "dist", "**/dist","build/**/*", "scripts"]
 }
