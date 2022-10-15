@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "parcel ./src/index.html --hmr-port 1236",
+    "client": "parcel ./src/index.html",
     "lint": "eslint 'src/*'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
