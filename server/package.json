@@ -1,19 +1,13 @@
 {
   "name": "@geckochat/server",
   "version": "1.0.0",
-  "description": "geckos chat app",  
+  "description": "geckos chat app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
-    "lint": "npx eslint .",
-    "lint:fix": "npx eslint . --fix",
-    "pre-commit": "npx lint-staged"
-  },
-  "lint-staged": {
-    "**/*.js": [
-      "prettier --write .",
-      "eslint . --fix"
-    ]
+    "lint": " eslint .",
+    "lint:fix": "eslint . --fix",
+    "pre-commit": "lint-staged"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +16,8 @@
     "socket.io": "^4.5.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "eslint": "^8.25.0"
   },
   "private": true,
   "type": "module"

@@ -11,5 +11,6 @@
   },
   "rules": {
     "no-unused-vars": "error"
-  }
+  },
+  "ignorePatterns": ["node_modules", "dist"]
 }
