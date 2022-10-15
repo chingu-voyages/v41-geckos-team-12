@@ -19,5 +19,12 @@
     "declarationMap": true,
     "sourceMap": true
   },
-  "exclude": ["node_modules", "**/node_modules", "dist", "**/dist","build/**/*", "scripts"]
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "dist",
+    "**/dist",
+    "build/**/*",
+    "scripts"
+  ]
 }
