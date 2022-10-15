@@ -1,8 +1,7 @@
 {
   "name": "@geckochat/server",
   "version": "1.0.0",
-  "description": "geckos chat app",
-  "main": "index.js",
+  "description": "geckos chat app",  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",

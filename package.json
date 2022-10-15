@@ -1,12 +1,13 @@
 {
   "name": "gecko-chat",
+  "source": "src/index.html",
   "version": "1.0.0",
   "description": "Project members",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "npm run server -w @geckochat/server",
     "server:lint": "npm run lint -w @geckochat/server",
+    "start": "parcel",
     "prepare": "husky install"
   },
   "repository": {
@@ -20,13 +21,20 @@
   },
   "homepage": "https://github.com/chingu-voyages/v41-geckos-team-12#readme",
   "devDependencies": {
+    "@types/react-dom": "^18.0.6",
     "eslint": "^8.25.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
+    "parcel": "^2.7.0",
     "prettier": "2.7.1",
+    "process": "^0.11.10",
     "typescript": "^4.8.4"
   },
   "workspaces": [
     "server"
-  ]
+  ],
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
