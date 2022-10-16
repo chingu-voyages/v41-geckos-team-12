@@ -34,11 +34,11 @@
     "client"
   ],
   "lint-staged": {
-    "server/*.js": [
+    "server/*.{js,ts}": [
       "prettier --write .",
       "eslint . --fix"
     ],
-    "client/*.js": [
+    "client/**/*.{js,ts,jsx,tsx}": [
       "prettier --write .",
       "eslint . --fix"
     ]
