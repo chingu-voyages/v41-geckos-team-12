@@ -1,15 +1,11 @@
-import { createServer } from 'http'
 import { Server } from 'socket.io'
 
 const PORT = 3000
 
-const httpServer = createServer()
-const io = new Server(httpServer, {
+const io = new Server(PORT, {
   // options
 })
 
 io.on('connection', () => {
-  // ... add new tcp
+  console.log('new connection')
 })
-
-httpServer.listen(PORT, () => `Server listening on port: ${PORT}`)
