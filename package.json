@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "npm run server -w @geckochat/server",
     "client": "npm run client -w @geckochat/client",
+    "app": "npm run server & npm run client",
     "server:lint": "npm run lint -w @geckochat/server",
     "client:lint": "npm run lint -w @geckochat/client",
     "pre-commit": "lint-staged",
