@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { io, Socket } from 'socket.io-client'
-
-const establishConnection = (cb: (socket: Socket) => void) => {
-  const socket = io('http://localhost:1234', { path: '/api' })
-  socket.on('connect', () => cb(socket))
-}
+import React from 'react'
+import { ConnectionStatus } from './components/ConntectionStatus'
+import { MessageTester } from './components/MessageTester'
 
 function App() {
-  const [socket, setSocket] = useState<Socket>()
-
-  useEffect(() => {
-    establishConnection(setSocket)
-  }, [])
-
-  return <h1>Connected: {socket?.connected ? '✅' : '❌'}</h1>
+  return (
+    <div>
+      <ConnectionStatus />
+      <MessageTester />
+    </div>
+  )
 }
 
 export default App
