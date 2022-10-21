@@ -1,0 +1,74 @@
+// colors
+
+$primary: #1ba7b9;
+$primaryDark: darken($primary, 20%);
+$primaryLight: lighten($primary, 20%);
+
+$secondary: #c4ff4d;
+$secondaryDark: darken($secondary, 20%);
+$secondaryLight: lighten($secondary, 40%);
+$secondaryOpaque: #c4ff4d23;
+$secondaryOpaque-2: #c4ff4d4f;
+
+$font-light: rgb(168, 168, 168);
+$font-medium: rgb(46, 46, 46);
+$font-dark: rgb(27, 27, 27);
+
+// sizing
+
+$small: 5px;
+$medium: 10px;
+$large: 15px;
+$xl: 20px;
+
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  padding: $large;
+  background: $primary;
+}
+
+.p-s {
+  padding: $small;
+}
+
+.p-m {
+  padding: $medium;
+}
+
+.p-l {
+  padding: $large;
+}
+
+.p-xl {
+  padding: $xl;
+}
+
+.m-s {
+  margin: $small;
+}
+
+.m-m {
+  margin: $medium;
+}
+
+.m-l {
+  margin: $large;
+}
+
+.m-xl {
+  margin: $xl;
+}
