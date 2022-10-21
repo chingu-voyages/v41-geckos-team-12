@@ -1,0 +1,60 @@
+@use '../../styles/global';
+
+.input-container {
+  width: 375px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: global.$xl;
+}
+
+.input {
+  border-radius: global.$large;
+  border: none;
+  font-size: larger;
+  color: global.$font-medium;
+  font-weight: 700;
+  outline: none;
+}
+
+.input::placeholder {
+  color: global.$font-light;
+}
+
+.button {
+  padding: global.$large;
+  border-radius: global.$large;
+  background-color: transparent;
+  border: 4px solid global.$secondary;
+  font-size: large;
+  font-weight: 800;
+  color: global.$secondary;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  &:hover {
+    background-color: global.$secondaryOpaque;
+  }
+
+  &:active {
+    background-color: global.$secondaryOpaque-2;
+  }
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: global.$xl;
+}
+
+.title {
+  letter-spacing: -5.5;
+  font-size: 5rem;
+  color: white;
+  margin: 0;
+}
+
+.description {
+  color: white;
+  margin: 0;
+}

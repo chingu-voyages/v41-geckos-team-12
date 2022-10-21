@@ -1,0 +1,21 @@
+@use '../../styles/global.scss';
+
+.status-toast {
+  position: fixed;
+  bottom: -50;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: global.$medium;
+  background: rgba(0, 128, 0, 0.466);
+  border-radius: global.$xl;
+  transition: bottom 0.3s;
+
+  .label {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.status-toast.transition {
+  bottom: 0;
+}
