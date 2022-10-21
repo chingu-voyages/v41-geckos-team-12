@@ -1,8 +1,15 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { io, Socket } from 'socket.io-client'
 
+type User = {
+  username: string
+  userId: string
+}
+
 interface AppContext {
+  user?: User
   socket: Socket | undefined
+  onStart: (username: string) => void
 }
 const AppContext = createContext({} as AppContext)
 
@@ -10,17 +17,25 @@ export const useAppContext = () => useContext(AppContext)
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [socket, setSocket] = useState<Socket>()
+  const [user, setUser] = useState<User>()
 
-  useEffect(() => {
-    establishConnection(setSocket)
-  }, [])
-
-  const establishConnection = (cb: (socket: Socket) => void) => {
-    const socket = io({ path: '/api' })
-    socket.on('connect', () => cb(socket))
+  const onStart = (username: string) => {
+    const socket = establishConnection()
+    setSocket(socket)
+    socket?.emit('new user', { username })
+    socket?.on('user created', (res) => {
+      setUser({ username: res.username, userId: res.userId })
+    })
+    socket.on('disconnect', () => {
+      socket.emit('user disconnected')
+    })
   }
 
+  const establishConnection = () => io({ path: '/api' })
+
   return (
-    <AppContext.Provider value={{ socket }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ user, socket, onStart }}>
+      {children}
+    </AppContext.Provider>
   )
 }
