@@ -21,25 +21,6 @@
   color: global.$font-light;
 }
 
-.button {
-  padding: global.$large;
-  border-radius: global.$large;
-  background-color: transparent;
-  border: 4px solid global.$secondary;
-  font-size: large;
-  font-weight: 800;
-  color: global.$secondary;
-  transition: background-color 0.3s;
-  cursor: pointer;
-  &:hover {
-    background-color: global.$secondaryOpaque;
-  }
-
-  &:active {
-    background-color: global.$secondaryOpaque-2;
-  }
-}
-
 .title-container {
   display: flex;
   flex-direction: column;

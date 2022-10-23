@@ -2,11 +2,11 @@
 
 $primary: #1ba7b9;
 $primaryDark: darken($primary, 20%);
-$primaryLight: lighten($primary, 20%);
+$primaryLight: lighten($primary, 40%);
 
-$secondary: #c4ff4d;
-$secondaryDark: darken($secondary, 20%);
-$secondaryLight: lighten($secondary, 40%);
+$secondary: #a9e928;
+$secondaryDark: darken($secondary, 10%);
+$secondaryLight: lighten($secondary, 10%);
 $secondaryOpaque: #c4ff4d23;
 $secondaryOpaque-2: #c4ff4d4f;
 
@@ -23,7 +23,7 @@ $xl: 20px;
 
 * {
   box-sizing: border-box;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'audiowide', sans-serif;
 }
 
 html,
@@ -37,7 +37,6 @@ body {
 #root {
   height: 100%;
   width: 100%;
-  padding: $large;
   background: $primary;
 }
 
