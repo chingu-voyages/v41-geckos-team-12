@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from '../../components/Button'
 import { useAppContext } from '../../context'
 import './styles.scss'
 
@@ -21,9 +22,9 @@ const Input = () => {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <button className="button" onClick={() => onStart(username)}>
+      <Button variant="outlined" onClick={() => onStart(username)}>
         Start
-      </button>
+      </Button>
     </div>
   )
 }

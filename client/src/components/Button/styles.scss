@@ -1,0 +1,33 @@
+@use '../../styles/global.scss';
+
+.button {
+  padding: global.$large;
+  border-radius: global.$large;
+  font-size: large;
+  font-weight: 800;
+  transition: background-color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+
+.outlined {
+  background-color: transparent;
+  border: 4px solid global.$secondary;
+  color: global.$secondary;
+  &:hover {
+    background-color: global.$secondaryOpaque;
+  }
+
+  &:active {
+    background-color: global.$secondaryOpaque-2;
+  }
+}
+
+.filled {
+  background-color: global.$secondary;
+  color: global.$primary;
+  border: 4px solid global.$secondary;
+  &:hover {
+    background-color: global.$secondaryDark;
+    border-color: global.$secondaryDark;
+  }
+}
