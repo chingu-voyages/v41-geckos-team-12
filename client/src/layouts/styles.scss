@@ -1,0 +1,19 @@
+@use '../styles/global.scss';
+
+.app-layout {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 100%;
+  grid-column-gap: 15px;
+}
+
+.app-side-bar {
+  padding: global.$xl;
+}
+
+.app-content {
+  background-color: global.$primaryLight;
+  padding: global.$xl;
+}
