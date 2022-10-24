@@ -3,5 +3,5 @@
   "compilerOptions": {
     "jsx": "react"
   },
-  "include": ["./index.ts"]
+  "include": ["./src/**/*"]
 }

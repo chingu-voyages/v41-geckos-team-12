@@ -21,6 +21,7 @@ const Input = () => {
         placeholder="Chat name"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        required
       />
       <Button variant="outlined" onClick={() => onStart(username)}>
         Start

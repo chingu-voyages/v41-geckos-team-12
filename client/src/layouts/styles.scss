@@ -24,6 +24,11 @@
   font-size: 42px;
   text-shadow: 2px 2px global.$font-medium;
 }
+.leavechat-container {
+  position: fixed;
+  top: 88%;
+  left: 5%;
+}
 
 .leave-chat-btn {
   background-color: transparent;

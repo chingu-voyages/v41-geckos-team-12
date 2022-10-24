@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useAppContext } from '../../context'
-import { Button } from '../Button'
 import './styles.scss'
 
 export const MessageTester = () => {
@@ -14,8 +13,8 @@ export const MessageTester = () => {
 
   useEffect(() => {
     if (socket?.active) {
-      socket?.on('new message', (res) => {
-        setMessages((current) => [...current, res.msg])
+      socket?.on('new message', ({ message }) => {
+        setMessages((current) => [...current, message])
       })
       socket.on('user disconnected', () => {
         setMessages((current) => [...current, 'Someone left the chat'])
@@ -28,8 +27,6 @@ export const MessageTester = () => {
 
   return (
     <div>
-      <Button onClick={handleOnClick}>Send a test message</Button>
-
       <div className="messages">
         {messages.map((msg, i) => (
           <div className="message p-m" key={i}>
