@@ -10,6 +10,7 @@ interface AppContext {
   user?: User
   socket: Socket | undefined
   onStart: (username: string) => void
+  onLogout: () => void
 }
 const AppContext = createContext({} as AppContext)
 
@@ -31,10 +32,12 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     })
   }
 
+  const onLogout = () => setUser(undefined)
+
   const establishConnection = () => io({ path: '/api' })
 
   return (
-    <AppContext.Provider value={{ user, socket, onStart }}>
+    <AppContext.Provider value={{ user, socket, onStart, onLogout }}>
       {children}
     </AppContext.Provider>
   )
