@@ -7,9 +7,11 @@ export const SideNav = () => {
   return (
     <>
       <h1 className="title-name">Chatterbox</h1>
-      <Button variant="outlined" onClick={onLogout}>
-        Leave chat
-      </Button>
+      <div className="leavechat-container">
+        <Button variant="outlined" onClick={onLogout}>
+          Leave chat
+        </Button>
+      </div>
     </>
   )
 }

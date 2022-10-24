@@ -12,10 +12,10 @@ io.on('connection', (socket) => {
     io.emit('user disconnected')
   })
 
-  socket.on('user message', (user) => {
-    logger(`User message received from ${user}`)
+  socket.on('sendMessage', (message) => {
+    logger(`New message: ${message}`)
     io.emit('new message', {
-      msg: `Message from  ${user}`,
+      message,
     })
   })
 

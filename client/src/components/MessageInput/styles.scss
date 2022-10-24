@@ -1,0 +1,18 @@
+@use '../../styles/global.scss';
+
+.input-msg {
+  height: 70px;
+  width: 500px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: none;
+  padding-left: 10px;
+  margin: 10px;
+}
+.input-container-msg {
+  display: inline;
+  position: fixed;
+  top: 85%;
+  left: 40%;
+  padding: 10px;
+}
