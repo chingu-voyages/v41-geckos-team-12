@@ -11,9 +11,36 @@
 
 .app-side-bar {
   padding: global.$xl;
+  text-align: center;
 }
 
 .app-content {
   background-color: global.$primaryLight;
   padding: global.$xl;
+}
+
+.title-name {
+  color: white;
+  font-size: 42px;
+  text-shadow: 2px 2px global.$font-medium;
+}
+
+.leave-chat-btn {
+  background-color: transparent;
+  border-color: global.$secondary;
+  color: global.$secondary;
+  padding: global.$large;
+  border-radius: global.$large;
+  font-size: large;
+  font-weight: 800;
+  transition: background-color 0.3s, border-color 0.3s;
+  cursor: pointer;
+  border: 4px solid global.$secondary;
+  &:hover {
+    background-color: global.$secondaryOpaque;
+  }
+
+  &:active {
+    background-color: global.$secondaryOpaque-2;
+  }
 }
