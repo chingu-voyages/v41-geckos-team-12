@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
+import { useAppContext } from '../../context'
 import { Button } from '../Button'
 import './styles.scss'
 
-export default function MessageInput({
-  onClick,
-}: {
-  onClick: (message: string) => void
-}) {
+export default function MessageInput() {
   const [message, setMessage] = useState('')
+
+  const { onSendMessage, user } = useAppContext()
+
   function handleOnClick() {
-    onClick(message)
+    onSendMessage({ message, username: user?.username })
     setMessage('')
   }
+
   return (
     <div className="input-container-msg">
       <input
