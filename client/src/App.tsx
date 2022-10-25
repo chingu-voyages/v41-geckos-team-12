@@ -1,6 +1,7 @@
 import React from 'react'
 import { ConnectionStatus } from './components/ConnectionStatus/ConntectionStatus'
-import { MessageTester } from './components/MessageTester/MessageTester'
+import MessageInput from './components/MessageInput/MessageInput'
+import { MessageList } from './components/MessageList/MessageLIst'
 import { SideNav } from './components/SideNav'
 import { useAppContext } from './context'
 import { AppLayout } from './layouts'
@@ -14,7 +15,8 @@ function App() {
   return (
     <AppLayout SideNav={<SideNav />}>
       <ConnectionStatus />
-      <MessageTester />
+      <MessageList />
+      <MessageInput />
     </AppLayout>
   )
 }

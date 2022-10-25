@@ -12,16 +12,16 @@ io.on('connection', (socket) => {
     io.emit('user disconnected')
   })
 
-  socket.on('sendMessage', (message) => {
-    logger(`New message: ${message}`)
+  socket.on('sendMessage', ({ message, username }) => {
+    const newMessage = `${username} says - ${message}`
+    logger(`New message: ${newMessage}`)
     io.emit('new message', {
-      message,
+      message: newMessage,
     })
   })
 
   socket.on('new user', (user) => {
     logger(`New user: ${user.username}`)
-    socket.emit('user created', { username: user.username, userId: socket.id })
     socket.broadcast.emit('new user', `User ${user.username} joined the chat`)
   })
 })
