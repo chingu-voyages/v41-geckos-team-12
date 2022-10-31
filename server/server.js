@@ -6,10 +6,20 @@ const PORT = 3000
 const io = new Server(PORT)
 
 io.on('connection', (socket) => {
-  logger(`User connected`)
-  socket.on('disconnect', () => {
-    logger(`User disconnected`)
-    io.emit('user disconnected')
+  const users = []
+
+  for (let [id, socket] of io.of('/').sockets) {
+    users.push({
+      id,
+      username: socket.username,
+    })
+  }
+
+  socket.emit('users', users)
+
+  socket.broadcast.emit('user connected', {
+    id: socket.id,
+    username: socket.username,
   })
 
   socket.on('sendMessage', ({ message, username }) => {
@@ -20,8 +30,15 @@ io.on('connection', (socket) => {
     })
   })
 
-  socket.on('new user', (user) => {
-    logger(`New user: ${user.username}`)
-    socket.broadcast.emit('new user', `User ${user.username} joined the chat`)
+  socket.on('disconnect', () => {
+    const user = users.find((user) => user.id === socket.id)
+    io.emit('user disconnected', user)
   })
+})
+
+io.use((socket, next) => {
+  const username = socket.handshake.auth.username
+
+  socket.username = username
+  next()
 })

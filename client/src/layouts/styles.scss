@@ -7,14 +7,23 @@
   grid-template-columns: 300px 1fr;
   grid-template-rows: 100%;
   grid-column-gap: 15px;
+
+    @media(max-width: 768px){
+   grid-template-columns: 1fr;
+  }
 }
 
 .app-side-bar {
   padding: global.$xl;
   text-align: center;
+
+  @media(max-width: 768px){
+    display: none;
+  }
 }
 
 .app-content {
+  position: relative !important;
   background-color: global.$primaryLight;
   padding: global.$xl;
 }

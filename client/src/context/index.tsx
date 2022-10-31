@@ -1,83 +1,85 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { io, Socket } from 'socket.io-client'
 
 type User = {
+  id: string
   username: string
-  userId: string
+  self?: boolean
 }
 
 interface AppContext {
-  user?: User
+  users: User[]
   socket: Socket | undefined
   messages: string[]
   onStart: (username: string) => void
   onLogout: () => void
-  onSendMessage: ({
-    message,
-    username,
-  }: {
-    message: string
-    username: string
-  }) => void
+  onSendMessage: ({ message }: { message: string }) => void
 }
 const AppContext = createContext({} as AppContext)
 
 export const useAppContext = () => useContext(AppContext)
 
-const establishConnection = () => io({ path: '/api' })
+const establishConnection = () => io({ path: '/api', autoConnect: false })
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [socket, setSocket] = useState<Socket>()
+  const [socket] = useState<Socket>(establishConnection())
   const [messages, setMessages] = useState<string[]>([])
-  const [user, setUser] = useState<User>()
+  const [users, setUsers] = useState<User[]>([])
 
   const onStart = (username: string) => {
-    const newSocket = establishConnection()
+    socket.auth = { username }
+    socket.connect()
 
-    newSocket.on('connect', () => {
-      setSocket(newSocket)
-
-      const newUser = { username, userId: newSocket.id }
-      setUser(newUser)
-      setMessages((current) => [...current, `Welcome to the chat ${username}`])
-
-      newSocket?.emit('new user', newUser)
-
-      newSocket.on('disconnect', () => {
-        newSocket.emit('user disconnected')
+    socket.on('users', (users: User[]) => {
+      users.forEach((user) => {
+        user.self = user.id === socket.id
       })
+      // put the current user first, and then sort by username
+      const sorted = (users = users.sort((a, b) => {
+        if (a.self) return -1
+        if (b.self) return 1
+        if (a.username < b.username) return -1
+        return a.username > b.username ? 1 : 0
+      }))
 
-      newSocket?.on('new message', ({ message }) => {
-        setMessages((current) => [...current, message])
-      })
-      newSocket.on('user disconnected', () => {
-        setMessages((current) => [...current, 'Someone left the chat'])
-      })
-      newSocket.on('new user', (msg) => {
-        setMessages((current) => [...current, msg])
-      })
+      setUsers(sorted)
+    })
+
+    socket.on('user connected', (user: User) => {
+      setUsers((currentUsers) => [...currentUsers, user])
+      setMessages((current) => [...current, `User ${user.username} joined`])
+    })
+
+    socket.onAny((event, ...args) => {
+      console.log(event, args)
+    })
+
+    socket.on('new message', ({ message }) => {
+      setMessages((current) => [...current, message])
+    })
+
+    socket.on('user disconnected', (user: User) => {
+      setUsers((currentUsers) =>
+        currentUsers.filter((currentUser) => currentUser.id !== user.id)
+      )
+      setMessages((current) => [...current, user.username + ' left the chat'])
     })
   }
 
-  const onSendMessage = ({
-    message,
-    username,
-  }: {
-    message: string
-    username: string
-  }) => {
-    socket?.emit('sendMessage', { message, username })
+  const onSendMessage = ({ message }: { message: string }) => {
+    const me = users.find((user) => user.id === socket.id)
+    socket.emit('sendMessage', { message, username: me?.username })
   }
 
   const onLogout = () => {
-    setUser(undefined)
+    setUsers([])
     setMessages([])
     socket?.disconnect()
   }
 
   return (
     <AppContext.Provider
-      value={{ user, socket, messages, onStart, onLogout, onSendMessage }}
+      value={{ users, socket, messages, onStart, onLogout, onSendMessage }}
     >
       {children}
     </AppContext.Provider>
