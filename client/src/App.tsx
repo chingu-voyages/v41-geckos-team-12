@@ -8,9 +8,9 @@ import { AppLayout } from './layouts'
 import { Welcome } from './pages/Welcome/Welcome'
 
 function App() {
-  const { user } = useAppContext()
+  const { users } = useAppContext()
 
-  if (!user) return <Welcome />
+  if (!users.length) return <Welcome />
 
   return (
     <AppLayout SideNav={<SideNav />}>

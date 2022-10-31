@@ -6,13 +6,13 @@ import './styles.scss'
 export default function MessageInput() {
   const [message, setMessage] = useState('')
 
-  const { onSendMessage, user } = useAppContext()
+  const { onSendMessage } = useAppContext()
 
   function handleOnClick() {
     if (!message) {
-      return;
+      return
     }
-    onSendMessage({ message, username: user?.username })
+    onSendMessage({ message })
     setMessage('')
   }
 

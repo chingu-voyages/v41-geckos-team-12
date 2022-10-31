@@ -23,7 +23,14 @@ const Input = () => {
         onChange={(e) => setUsername(e.target.value)}
         required
       />
-      <Button variant="outlined" onClick={() => onStart(username)}>
+      <Button
+        variant="outlined"
+        onClick={() => {
+          if (username.length) {
+            onStart(username)
+          }
+        }}
+      >
         Start
       </Button>
     </div>
