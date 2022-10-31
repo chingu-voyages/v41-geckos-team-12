@@ -1,18 +1,22 @@
 @use '../../styles/global.scss';
 
 .input-msg {
-  height: 70px;
-  width: 500px;
+  height: 50px;
+  width: 100%;
   border-radius: 15px;
   border: none;
   box-shadow: none;
   padding-left: 10px;
   margin: 10px;
 }
+
 .input-container-msg {
-  display: inline;
-  position: fixed;
-  top: 85%;
-  left: 40%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  position: absolute;
+  bottom: 1vh;
+  left: 0;
+  right: 0;
   padding: 10px;
 }

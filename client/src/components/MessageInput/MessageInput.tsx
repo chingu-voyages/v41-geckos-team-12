@@ -9,6 +9,9 @@ export default function MessageInput() {
   const { onSendMessage, user } = useAppContext()
 
   function handleOnClick() {
+    if (!message) {
+      return;
+    }
     onSendMessage({ message, username: user?.username })
     setMessage('')
   }

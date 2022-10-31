@@ -1,14 +1,15 @@
 @use '../../styles/global.scss';
 
 .status-toast {
-  position: fixed;
-  bottom: -30;
+  position: absolute;
+  top: -10;
   right: 0;
   transform: translateX(-50%);
-  margin-bottom: global.$medium;
+  margin-bottom: global.$medium ;
   background: rgba(0, 128, 0, 0.466);
   border-radius: global.$xl;
   transition: bottom 0.3s;
+  margin: 0 auto;
 
   .label {
     color: white;
@@ -17,5 +18,5 @@
 }
 
 .status-toast.transition {
-  bottom: 30;
+  top: 10;
 }

@@ -41,21 +41,23 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       setUser(newUser)
       setMessages((current) => [...current, `Welcome to the chat ${username}`])
 
-      newSocket?.emit('new user', newUser)
-
-      newSocket.on('disconnect', () => {
-        newSocket.emit('user disconnected')
-      })
+      newSocket?.emit('new user', newUser);
+   
 
       newSocket?.on('new message', ({ message }) => {
         setMessages((current) => [...current, message])
-      })
-      newSocket.on('user disconnected', () => {
-        setMessages((current) => [...current, 'Someone left the chat'])
-      })
+      });
+
+      newSocket.emit('which user', "jeremy");
+
+      newSocket?.on('user disconnected', (user) => {
+        setMessages((current) => [...current, user + ' left the chat'])
+      });
+
       newSocket.on('new user', (msg) => {
-        setMessages((current) => [...current, msg])
-      })
+        setMessages((current) => [...current, msg]);
+      });
+
     })
   }
 
