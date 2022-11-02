@@ -2,4 +2,6 @@
 
 .messages {
   margin-top: global.$xl;
+  display: flex;
+  flex-direction: column;
 }

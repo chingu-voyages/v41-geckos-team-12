@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
-import { useAppContext } from '../../context'
 import { Button } from '../Button'
 import './styles.scss'
 
-export default function MessageInput() {
+export const MessageInput = ({
+  onSend,
+}: {
+  onSend: (message: string) => void
+}) => {
   const [message, setMessage] = useState('')
-
-  const { onSendMessage } = useAppContext()
 
   function handleOnClick() {
     if (!message) {
       return
     }
-    onSendMessage({ message })
+    onSend(message)
     setMessage('')
   }
 

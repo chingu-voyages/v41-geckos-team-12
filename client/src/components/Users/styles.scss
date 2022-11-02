@@ -1,0 +1,8 @@
+@use '../../styles/global';
+
+.user_button {
+  margin-bottom: global.$medium;
+  padding: global.$small;
+  border-radius: global.$medium;
+  cursor: pointer;
+}

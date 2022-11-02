@@ -10,7 +10,7 @@ export const MessageList = () => {
     <div>
       <div className="messages">
         {messages.map((msg, i) => (
-          <Message msg={msg} key={i} />
+          <Message msg={msg.message} self={msg.self} key={i} />
         ))}
       </div>
     </div>
