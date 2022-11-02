@@ -22,12 +22,19 @@ io.on('connection', (socket) => {
     username: socket.username,
   })
 
-  socket.on('sendMessage', ({ message, username }) => {
-    const newMessage = `${username} says - ${message}`
-    logger(`New message: ${newMessage}`)
+  socket.on('sendMessage', ({ message }) => {
+    logger(`New message: ${message}`)
     io.emit('new message', {
-      message: newMessage,
+      message,
+      users,
+      from: socket.id,
     })
+  })
+
+  socket.on('privateMessage', ({ message, id }) => {
+    socket
+      .to(id)
+      .emit('new message', { message, from: socket.id, users, isPrivate: true })
   })
 
   socket.on('disconnect', () => {
