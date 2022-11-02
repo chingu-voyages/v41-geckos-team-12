@@ -2,10 +2,10 @@
   "name": "@geckochat/client",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "client": "parcel ./src/index.html",
     "lint": "eslint 'src/*'",
+    "build": "parcel build ./src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
