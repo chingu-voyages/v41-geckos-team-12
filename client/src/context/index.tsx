@@ -24,8 +24,8 @@ const AppContext = createContext({} as AppContext)
 export const useAppContext = () => useContext(AppContext)
 
 const establishConnection = () =>
-  io('https://chatterbox.onrender.com/socket.io', {
-    path: '/',
+  io('https://chatterbox.onrender.com', {
+    path: '/socket.io',
     autoConnect: false,
   })
 
