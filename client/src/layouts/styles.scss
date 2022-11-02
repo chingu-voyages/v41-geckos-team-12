@@ -8,8 +8,8 @@
   grid-template-rows: 100%;
   grid-column-gap: 15px;
 
-    @media(max-width: 768px){
-   grid-template-columns: 1fr;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -17,7 +17,7 @@
   padding: global.$xl;
   text-align: center;
 
-  @media(max-width: 768px){
+  @media (max-width: 768px) {
     display: none;
   }
 }
