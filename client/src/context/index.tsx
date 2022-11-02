@@ -24,7 +24,10 @@ const AppContext = createContext({} as AppContext)
 export const useAppContext = () => useContext(AppContext)
 
 const establishConnection = () =>
-  io('https://chatterbox.onrender.com', { path: '/', autoConnect: false })
+  io('https://chatterbox.onrender.com/socket.io', {
+    path: '/',
+    autoConnect: false,
+  })
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [socket] = useState<Socket>(establishConnection())
