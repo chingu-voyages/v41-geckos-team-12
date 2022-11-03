@@ -11,7 +11,8 @@
     "server:lint": "npm run lint -w @geckochat/server",
     "client:lint": "npm run lint -w @geckochat/client",
     "pre-commit": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "clean": "npm run clean -w @geckochat/client"
   },
   "repository": {
     "type": "git",

@@ -19,13 +19,16 @@ interface AppContext {
   startPrivateChat: (user: User) => void
   endPrivateChat: () => void
 }
+const isDevelop = process.env.NODE_ENV === 'development'
+const url = isDevelop ? 'localhost:1234' : 'https://chatterbox.onrender.com'
+const path = isDevelop ? '/api' : '/'
+
 const AppContext = createContext({} as AppContext)
 
 export const useAppContext = () => useContext(AppContext)
-
 const establishConnection = () =>
-  io('https://chatterbox.onrender.com', {
-    path: '/socket.io',
+  io(url, {
+    path,
     autoConnect: false,
   })
 
