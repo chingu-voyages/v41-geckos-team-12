@@ -46,8 +46,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     socket.auth = { username }
 
     setIsLoading(true)
-    await socket.connect()
-    setIsLoading(false)
+    socket.connect()
 
     socket.onAny((event, ...args) => {
       console.log(event, args)
@@ -64,7 +63,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         if (a.username < b.username) return -1
         return a.username > b.username ? 1 : 0
       }))
-
+      setIsLoading(false)
       setUsers(sorted)
     })
 
