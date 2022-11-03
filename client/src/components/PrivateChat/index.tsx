@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useAppContext } from '../../context'
-import { Message } from '../Message'
 import { MessageInput } from '../MessageInput'
 import './styles.scss'
 
 export const PrivateChat = () => {
   const { privateChat, endPrivateChat, onSendPrivateMessage } = useAppContext()
-  const [messages, setMessages] = useState<string[]>([])
 
   if (!privateChat) return null
 
@@ -21,11 +19,6 @@ export const PrivateChat = () => {
           >
             ✖
           </div>
-        </div>
-        <div className="card_messages">
-          {messages.map((message, i) => (
-            <Message msg={message} key={i} />
-          ))}
         </div>
         <MessageInput
           onSend={(message: string) => {

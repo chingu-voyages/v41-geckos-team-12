@@ -1,7 +1,7 @@
 // colors
 
 $primary: #1ba7b9;
-$primaryDark: darken($primary, 20%);
+$primaryDark: darken($primary, 10%);
 $primaryLight: lighten($primary, 40%);
 
 $secondary: #a9e928;
@@ -10,20 +10,26 @@ $secondaryLight: lighten($secondary, 10%);
 $secondaryOpaque: #c4ff4d23;
 $secondaryOpaque-2: #c4ff4d4f;
 
-$font-light: rgb(168, 168, 168);
+$font-light: rgb(218, 218, 218);
 $font-medium: rgb(46, 46, 46);
 $font-dark: rgb(27, 27, 27);
 
+$color-test1: #edede9;
+$color-test2: #3ba9b7;
+$colo-test3: #cececa;
 // sizing
-
 $small: 5px;
 $medium: 10px;
 $large: 15px;
 $xl: 25px;
 
+// fonts
+$primaryFont: 'audiowide', sans-serif;
+$secondaryFont: 'Poppins', sans-serif;
+
 * {
   box-sizing: border-box;
-  font-family: 'audiowide', sans-serif;
+  font-family: $primaryFont;
 }
 
 html,
@@ -37,7 +43,7 @@ body {
 #root {
   height: 100%;
   width: 100%;
-  background: $primary;
+  background: $primaryLight;
 }
 
 .p-s {

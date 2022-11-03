@@ -1,8 +1,18 @@
 @use '../../styles/global';
 
 .user_button {
+  font-family: global.$secondaryFont;
+  font-weight: bold;
+  color: global.$primary;
+  background-color: white;
   margin-bottom: global.$medium;
   padding: global.$small;
   border-radius: global.$medium;
+  border: none;
   cursor: pointer;
+  &:hover {
+    background-color: global.$primaryLight;
+    color: white;
+    border-color: white 2px solid;
+  }
 }

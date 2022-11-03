@@ -1,0 +1,10 @@
+@use '../../styles/global.scss';
+
+.msg-date {
+  display: flex;
+  justify-content: flex-end;
+  font-family: global.$secondaryFont;
+  font-weight: 200;
+  font-size: global.$medium;
+  color: global.$font-light;
+}

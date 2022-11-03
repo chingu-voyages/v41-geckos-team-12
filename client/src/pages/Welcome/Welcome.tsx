@@ -42,16 +42,7 @@ const Input = () => {
 export const Welcome = () => {
   const { isLoading } = useAppContext()
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '80%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <div className="welcome">
       <Title title={isLoading ? 'Loading app..' : 'Chatterbox'} />
       {!isLoading && <Input />}
     </div>

@@ -1,22 +1,26 @@
 @use '../styles/global.scss';
 
 .app-layout {
-  width: 100%;
+  width: 55%;
   height: 100%;
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 400px 1fr;
   grid-template-rows: 100%;
   grid-column-gap: 15px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
+
+  @media (max-width: 1500px) {
+    width: 100%;
+  }
 }
 
 .app-side-bar {
   padding: global.$xl;
   text-align: center;
-
+  background: global.$primary;
   @media (max-width: 768px) {
     display: none;
   }
@@ -25,18 +29,12 @@
 .app-content {
   position: relative !important;
   background-color: global.$primaryLight;
-  padding: global.$xl;
 }
 
 .title-name {
   color: white;
   font-size: 42px;
   text-shadow: 2px 2px global.$font-medium;
-}
-.leavechat-container {
-  position: fixed;
-  top: 88%;
-  left: 5%;
 }
 
 .leave-chat-btn {
@@ -46,7 +44,6 @@
   padding: global.$large;
   border-radius: global.$large;
   font-size: large;
-  font-weight: 800;
   transition: background-color 0.3s, border-color 0.3s;
   cursor: pointer;
   border: 4px solid global.$secondary;
