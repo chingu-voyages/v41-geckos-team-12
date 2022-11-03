@@ -3,7 +3,7 @@ import { logger } from './utils.js'
 
 const PORT = 3000
 
-const io = new Server(PORT)
+const io = new Server(PORT, { cors: '*' })
 
 io.on('connection', (socket) => {
   const users = []
