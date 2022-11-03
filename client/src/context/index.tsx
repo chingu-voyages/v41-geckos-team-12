@@ -13,6 +13,7 @@ interface AppContext {
   messages: Array<{ message: string; self?: boolean }>
   privateChat?: User
   onSendMessage: ({ message }: { message: string }) => void
+  isLoading: boolean
   onSendPrivateMessage: (args: { message: string; id: string }) => void
   onStart: (username: string) => void
   onLogout: () => void
@@ -39,10 +40,14 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   >([])
   const [users, setUsers] = useState<User[]>([])
   const [privateChat, setPrivateChat] = useState<User>()
+  const [isLoading, setIsLoading] = useState(false)
 
-  const onStart = (username: string) => {
+  const onStart = async (username: string) => {
     socket.auth = { username }
-    socket.connect()
+
+    setIsLoading(true)
+    await socket.connect()
+    setIsLoading(false)
 
     socket.onAny((event, ...args) => {
       console.log(event, args)
@@ -142,6 +147,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         socket,
         messages,
         privateChat,
+        isLoading,
         onStart,
         onLogout,
         onSendMessage,

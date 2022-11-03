@@ -3,12 +3,14 @@ import { Button } from '../../components/Button'
 import { useAppContext } from '../../context'
 import './styles.scss'
 
-const Title = () => (
-  <div className="title-container">
-    <h1 className="title">Chatterbox</h1>
-    <h3 className="description"></h3>
-  </div>
-)
+const Title = ({ title }: { title: string }) => {
+  return (
+    <div className="title-container">
+      <h1 className="title">{title}</h1>
+      <h3 className="description"></h3>
+    </div>
+  )
+}
 
 const Input = () => {
   const [username, setUsername] = useState('')
@@ -38,6 +40,7 @@ const Input = () => {
 }
 
 export const Welcome = () => {
+  const { isLoading } = useAppContext()
   return (
     <div
       style={{
@@ -49,8 +52,8 @@ export const Welcome = () => {
         alignItems: 'center',
       }}
     >
-      <Title />
-      <Input />
+      <Title title={isLoading ? 'Loading app..' : 'Chatterbox'} />
+      {!isLoading && <Input />}
     </div>
   )
 }
