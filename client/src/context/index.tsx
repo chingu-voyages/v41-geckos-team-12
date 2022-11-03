@@ -21,7 +21,7 @@ interface AppContext {
 }
 const isDevelop = process.env.NODE_ENV === 'development'
 const url = isDevelop ? 'localhost:1234' : 'https://chatterbox.onrender.com'
-const path = isDevelop ? '/api' : '/'
+const path = isDevelop ? '/api' : '/socket.io'
 
 const AppContext = createContext({} as AppContext)
 
