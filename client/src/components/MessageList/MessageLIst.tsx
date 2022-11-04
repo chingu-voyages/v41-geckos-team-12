@@ -7,10 +7,10 @@ export const MessageList = () => {
   const { messages } = useAppContext()
 
   return (
-    <div>
+    <div className="msg-list-container">
       <div className="messages">
         {messages.map((msg, i) => (
-          <Message msg={msg.message} self={msg.self} key={i} />
+          <Message message={msg} key={i} />
         ))}
       </div>
     </div>

@@ -1,5 +1,14 @@
 import React, { createContext, useContext, useState } from 'react'
 import { io, Socket } from 'socket.io-client'
+import { makeDate } from '../utils'
+
+type Date = {
+  hour: string
+  minute: string
+  day: string
+  month: string
+  year: string
+}
 
 type User = {
   id: string
@@ -7,10 +16,16 @@ type User = {
   self?: boolean
 }
 
+export type Message = {
+  message: string
+  self?: boolean
+  date: Date
+}
+
 interface AppContext {
   users: User[]
   socket: Socket | undefined
-  messages: Array<{ message: string; self?: boolean }>
+  messages: Message[]
   privateChat?: User
   onSendMessage: ({ message }: { message: string }) => void
   isLoading: boolean
@@ -35,9 +50,7 @@ const establishConnection = () =>
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [socket] = useState<Socket>(establishConnection())
-  const [messages, setMessages] = useState<
-    { message: string; self?: boolean }[]
-  >([])
+  const [messages, setMessages] = useState<Message[]>([])
   const [users, setUsers] = useState<User[]>([])
   const [privateChat, setPrivateChat] = useState<User>()
   const [isLoading, setIsLoading] = useState(false)
@@ -71,7 +84,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       setUsers((currentUsers) => [...currentUsers, user])
       setMessages((current) => [
         ...current,
-        { message: `User ${user.username} joined` },
+        { message: `User ${user.username} joined`, date: makeDate() },
       ])
     })
 
@@ -90,7 +103,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
       setMessages((current) => [
         ...current,
-        { message: newMessage, self: isSelf },
+        { message: newMessage, self: isSelf, date: makeDate() },
       ])
     })
 
@@ -100,7 +113,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       )
       setMessages((current) => [
         ...current,
-        { message: user.username + ' left the chat' },
+        { message: user.username + ' left the chat', date: makeDate() },
       ])
     })
   }
@@ -134,6 +147,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       {
         message: `Private message to ${to?.username} >> ${message}`,
         self: true,
+        date: makeDate(),
       },
     ])
     socket.emit('privateMessage', { message, id })

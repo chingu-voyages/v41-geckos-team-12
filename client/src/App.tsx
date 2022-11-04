@@ -1,5 +1,4 @@
 import React from 'react'
-import { ConnectionStatus } from './components/ConnectionStatus/ConntectionStatus'
 import { MessageInput } from './components/MessageInput'
 import { MessageList } from './components/MessageList/MessageLIst'
 import { PrivateChat } from './components/PrivateChat'
@@ -16,7 +15,6 @@ function App() {
   return (
     <AppLayout SideNav={<SideNav />}>
       <PrivateChat />
-      <ConnectionStatus />
       <MessageList />
       <MessageInput onSend={(message) => onSendMessage({ message })} />
     </AppLayout>

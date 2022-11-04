@@ -18,8 +18,9 @@
   margin: auto;
   border-radius: 10;
   position: relative;
-  background: global.$primaryLight;
+  background: global.$primary;
   max-width: 750px;
+  color: white;
 }
 
 .card_header {
