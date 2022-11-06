@@ -1,5 +1,6 @@
 import React from 'react'
 import { Logo } from '../components/Logo'
+import { useAppContext } from '../context'
 import './styles.scss'
 
 export const AppLayout = ({
@@ -8,12 +9,15 @@ export const AppLayout = ({
 }: {
   children: React.ReactNode
   SideNav: React.ReactElement
-}) => (
-  <div className="app-layout">
-    <div className="app-side-bar">
-      <Logo />
-      {SideNav}
+}) => {
+  const { showSideNav } = useAppContext()
+  return (
+    <div className="app-layout">
+      <div className={`app-side-bar ${showSideNav ? 'show' : ''}`}>
+        <Logo />
+        {SideNav}
+      </div>
+      <div className="app-content">{children}</div>
     </div>
-    <div className="app-content">{children}</div>
-  </div>
-)
+  )
+}

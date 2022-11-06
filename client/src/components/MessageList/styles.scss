@@ -11,3 +11,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.show-users-btn {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}

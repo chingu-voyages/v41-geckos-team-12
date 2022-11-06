@@ -21,8 +21,20 @@
   padding: global.$xl;
   text-align: center;
   background: global.$primary;
+  transition: left 0.3s ease-in-out;
   @media (max-width: 768px) {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.app-side-bar.show {
+  @media (max-width: 768px) {
+    left: 0;
   }
 }
 

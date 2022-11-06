@@ -29,11 +29,14 @@ interface AppContext {
   privateChat?: User
   onSendMessage: ({ message }: { message: string }) => void
   isLoading: boolean
+  showSideNav: boolean
   onSendPrivateMessage: (args: { message: string; id: string }) => void
   onStart: (username: string) => void
   onLogout: () => void
   startPrivateChat: (user: User) => void
   endPrivateChat: () => void
+  onShowUsers: () => void
+  onHideUsers: () => void
 }
 const isDevelop = process.env.NODE_ENV === 'development'
 const url = isDevelop ? 'localhost:1234' : 'https://chatterbox.onrender.com'
@@ -54,6 +57,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [users, setUsers] = useState<User[]>([])
   const [privateChat, setPrivateChat] = useState<User>()
   const [isLoading, setIsLoading] = useState(false)
+  const [showSideNav, setShowSideNav] = useState(false)
 
   const onStart = async (username: string) => {
     socket.auth = { username }
@@ -151,7 +155,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       },
     ])
     socket.emit('privateMessage', { message, id })
+    onHideUsers()
   }
+
+  const onShowUsers = () => setShowSideNav(true)
+  const onHideUsers = () => setShowSideNav(false)
 
   return (
     <AppContext.Provider
@@ -161,12 +169,15 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         messages,
         privateChat,
         isLoading,
+        showSideNav,
         onStart,
         onLogout,
         onSendMessage,
         onSendPrivateMessage,
         startPrivateChat,
         endPrivateChat,
+        onShowUsers,
+        onHideUsers,
       }}
     >
       {children}

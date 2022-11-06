@@ -1,0 +1,12 @@
+@use '../../styles/global';
+
+.side-nav-actions {
+  display: flex;
+  flex-direction: column;
+  gap: global.$medium;
+  .close-side-nav {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}
