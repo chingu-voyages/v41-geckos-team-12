@@ -1,19 +1,22 @@
 @use '../../styles/global';
 
-.msg-list-container {
-  padding: global.$large;
-  width: 100%;
-  height: 85%;
-  overflow-y: auto;
-}
-.messages {
-  margin-top: global.$xl;
-  display: flex;
-  flex-direction: column;
-}
-
-.show-users-btn {
-  @media (min-width: 768px) {
-    display: none;
+.msg-page {
+  height: calc(100% - 25px);
+  padding: global.$medium;
+  .show-users-btn {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  .msg-list-container {
+    padding: global.$large;
+    width: 100%;
+    height: 85%;
+    overflow-y: auto;
+    .messages {
+      margin-top: global.$xl;
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

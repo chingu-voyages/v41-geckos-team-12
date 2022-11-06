@@ -16,14 +16,14 @@ export const SideNav = () => {
 
       <Users />
       <div className="side-nav-actions">
-        <Button variant="outlined" onClick={onLogout} fullWidth>
-          Leave chat
-        </Button>
         <div className="close-side-nav">
-          <Button onClick={onHideUsers} fullWidth>
+          <Button variant="outlined" onClick={onHideUsers} fullWidth>
             Close
           </Button>
         </div>
+        <Button onClick={onLogout} fullWidth>
+          Leave chat
+        </Button>
       </div>
     </div>
   )
