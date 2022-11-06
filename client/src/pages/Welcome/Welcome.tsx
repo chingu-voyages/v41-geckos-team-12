@@ -23,6 +23,9 @@ const Input = () => {
         placeholder="Chat name"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        onKeyDown={({ key }) => {
+          if (key.toUpperCase() === 'ENTER') onStart(username)
+        }}
         required
       />
       <Button

@@ -10,7 +10,7 @@ export const MessageInput = ({
   const [message, setMessage] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
-  function handleOnClick() {
+  function handleSend() {
     if (!message) {
       return
     }
@@ -28,10 +28,13 @@ export const MessageInput = ({
         placeholder="Type here..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={({ key }) => {
+          if (key.toUpperCase() === 'ENTER') handleSend()
+        }}
         autoFocus
       />
 
-      <Button variant="filled" onClick={handleOnClick}>
+      <Button variant="filled" onClick={handleSend}>
         Send
       </Button>
     </div>
