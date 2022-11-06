@@ -46,7 +46,7 @@ export const Welcome = () => {
   const { isLoading } = useAppContext()
   return (
     <div className="welcome">
-      <Title title={isLoading ? 'Loading app..' : 'Chatterbox'} />
+      <Title title={isLoading ? 'Loading ..' : 'Chatterbox'} />
       {!isLoading && <Input />}
     </div>
   )

@@ -1,5 +1,17 @@
 @use '../../styles/global';
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5;
+}
+
+.title-name {
+  color: white;
+  font-size: 2rem;
+}
+
 .side-nav-actions {
   display: flex;
   flex-direction: column;

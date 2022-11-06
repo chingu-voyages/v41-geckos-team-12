@@ -41,8 +41,17 @@
 }
 
 .title {
-  letter-spacing: -5.5;
-  font-size: 5rem;
+  letter-spacing: -3;
+
+  @media (min-width: 768px) {
+    font-size: 8rem;
+  }
+
+  @media (min-width: 500px) {
+    font-size: 6rem;
+  }
+  font-size: 4rem;
+
   color: white;
   margin: 0;
 }
