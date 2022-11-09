@@ -10,6 +10,7 @@
   margin-bottom: global.$medium;
   border-radius: 0 15px 15px 15px;
   width: 300px;
+  overflow-wrap: break-word;
 }
 
 .message.self {

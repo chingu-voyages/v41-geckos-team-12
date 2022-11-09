@@ -1,3 +1,4 @@
+import EmojiPicker from 'emoji-picker-react'
 import React from 'react'
 import { MessageInput } from './components/MessageInput'
 import { MessageList } from './components/MessageList/MessageLIst'
@@ -16,7 +17,10 @@ function App() {
     <AppLayout SideNav={<SideNav />}>
       <PrivateChat />
       <MessageList />
-      <MessageInput onSend={(message) => onSendMessage({ message })} />
+      <MessageInput onSend={(message) => onSendMessage({ message })}>
+        {' '}
+        <EmojiPicker />
+      </MessageInput>
     </AppLayout>
   )
 }

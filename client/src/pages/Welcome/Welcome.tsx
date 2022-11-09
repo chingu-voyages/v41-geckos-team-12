@@ -16,7 +16,7 @@ const Input = () => {
   const [username, setUsername] = useState('')
   const { onStart } = useAppContext()
   return (
-    <div className="input-container">
+    <div className="welcome-input-container">
       <input
         className="input p-l"
         autoFocus
