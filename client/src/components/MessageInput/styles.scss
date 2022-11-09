@@ -1,8 +1,9 @@
 @use '../../styles/global';
 
 .input-container {
-  background: white;
+  background: global.$primary-white;
   border-radius: 15px;
+  margin-left: 30px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 50px;
@@ -23,7 +24,6 @@
     font-family: global.$secondaryFont;
     font-weight: 300;
     height: 50px;
-
     border: none;
     background: none;
     box-shadow: none;
@@ -32,13 +32,13 @@
   }
   button {
     cursor: pointer;
-
     background: none;
     border: none;
     border-radius: 50px;
     font-size: 25px;
+    margin-left: 0;
     &:hover {
-      background: rgb(215, 238, 204);
+      background: global.$secondaryLight;
     }
   }
 }
@@ -50,6 +50,7 @@
   position: absolute;
   bottom: 1vh;
   left: 0;
-  right: 0;
-  padding: global.$xl;
+  right: 30;
+  padding: global.$medium;
+
 }

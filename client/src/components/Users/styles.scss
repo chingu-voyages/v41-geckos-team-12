@@ -2,9 +2,9 @@
 
 .user_button {
   font-family: global.$secondaryFont;
-  font-weight: bold;
-  color: global.$primary;
-  background-color: white;
+  font-weight: 500;
+  color: global.$primary-white;
+  background-color: global.$secondary;
   margin-bottom: global.$medium;
   padding: global.$small;
   border-radius: global.$medium;
@@ -13,6 +13,6 @@
   &:hover {
     background-color: global.$primaryLight;
     color: white;
-    border-color: white 2px solid;
+    border-color: 2px solid white;
   }
 }

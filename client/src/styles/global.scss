@@ -1,10 +1,10 @@
 // colors
 
-$primary: #1ba7b9;
+$primary: #4059ad;
 $primaryDark: darken($primary, 10%);
-$primaryLight: lighten($primary, 40%);
+$primaryLight: lighten($primary, 15%);
 
-$secondary: #a9e928;
+$secondary: #aeb8fe;
 $secondaryDark: darken($secondary, 10%);
 $secondaryLight: lighten($secondary, 10%);
 $secondaryOpaque: #c4ff4d23;
@@ -14,9 +14,9 @@ $font-light: rgb(218, 218, 218);
 $font-medium: rgb(46, 46, 46);
 $font-dark: rgb(27, 27, 27);
 
-$color-test1: #edede9;
-$color-test2: #3ba9b7;
-$colo-test3: #cececa;
+$tertiary: #758bfd;
+$primary-white: #f1f2f6;
+
 // sizing
 $small: 5px;
 $medium: 10px;
@@ -43,7 +43,7 @@ body {
 #root {
   height: 100%;
   width: 100%;
-  background: $primaryLight;
+  background: $primary-white;
 }
 
 .p-s {
