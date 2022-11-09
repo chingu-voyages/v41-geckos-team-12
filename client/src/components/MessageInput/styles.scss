@@ -29,6 +29,7 @@
     box-shadow: none;
     padding-left: 10px;
     outline: none;
+    color: global.$primary;
   }
   button {
     cursor: pointer;
@@ -52,5 +53,4 @@
   left: 0;
   right: 30;
   padding: global.$medium;
-
 }
