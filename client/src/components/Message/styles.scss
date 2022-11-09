@@ -2,19 +2,23 @@
 
 .message {
   font-family: global.$secondaryFont;
-  font-weight: 400;
+  font-weight: 500;
   font-size: medium;
   letter-spacing: -0.5;
-  color: white;
-  background: global.$primaryDark;
-  margin-bottom: global.$medium;
+  color: global.$primary-purple-light;
+  background: global.$primary-white;
+  margin-bottom: global.$small;
   border-radius: 0 15px 15px 15px;
   width: 300px;
   overflow-wrap: break-word;
 }
 
 .message.self {
+  font-family: global.$secondaryFont;
+  font-weight: 500;
+  background: global.$primary-purple-light;
   float: right;
   background: global.$primary;
   border-radius: 15px 0 15px 15px;
+  color: global.$primary-white;
 }

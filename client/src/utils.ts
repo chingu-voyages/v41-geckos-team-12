@@ -15,7 +15,13 @@ export const makeDate = () => {
     dateObject.day = `${day}`
   }
 
-  dateObject.month = `${date.getMonth() + 1}`
+  const month = date.getMonth()
+
+  if (month < 10) {
+    dateObject.month = `0${date.getMonth() + 1}`
+  } else {
+    dateObject.month = `${date.getMonth() + 1}`
+  }
 
   dateObject.year = `${date.getFullYear()}`
 

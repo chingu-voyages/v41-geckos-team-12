@@ -14,9 +14,10 @@ $font-light: rgb(218, 218, 218);
 $font-medium: rgb(46, 46, 46);
 $font-dark: rgb(27, 27, 27);
 
-$color-test1: #edede9;
-$color-test2: #3ba9b7;
-$colo-test3: #cececa;
+$primary-blue: #4059ad;
+$primary-purple: #758bfd;
+$primary-purple-light: #aeb8fe;
+$primary-white: #f1f2f6;
 // sizing
 $small: 5px;
 $medium: 10px;
@@ -43,7 +44,7 @@ body {
 #root {
   height: 100%;
   width: 100%;
-  background: $primaryLight;
+  background: $primary-blue;
 }
 
 .p-s {
