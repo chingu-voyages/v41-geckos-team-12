@@ -61,7 +61,7 @@ export const MessageInput = ({
         />
         <button onClick={() => setShowEmojis((show) => !show)}>😊</button>
       </div>
-      <Button variant="filled" onClick={handleSend}>
+      <Button variant="filled-purple" onClick={handleSend}>
         Send
       </Button>
     </div>

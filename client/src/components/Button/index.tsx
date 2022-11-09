@@ -9,7 +9,7 @@ export const Button = ({
 }: {
   children: string
   fullWidth?: boolean
-  variant?: 'outlined' | 'filled'
+  variant?: 'outlined' | 'filled' | 'filled-purple'
   onClick: () => void
 }) => (
   <button
